@@ -18,9 +18,8 @@ var uglify = require('gulp-uglify');
 var dirName = require('path').basename(__dirname);
 
 gulp.task('browser-sync', function() {
-  console.log();
-  browserSync({
-    proxy: "localhost/"+dirName
+  browserSync.init({
+    proxy: 'localhost/'+dirName
   });
 });
 
@@ -37,14 +36,18 @@ var errorHandler = {
 
 gulp.task('styles', function(){
   gulp.src('./src/sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      includePaths: ['./src/sass']
+    }).on('error', sass.logError))
     .pipe(postcss([ autoprefixer({ browsers: [">1%"] }) ]))
     .pipe(gulp.dest('./'))
     .pipe(rename({suffix: '.min'}))
     .pipe(postcss([ cssnano() ]))
-    .pipe(pixrem({ rootValue: '10px', html: false })) //has to be after minify or the fallbacks get stripped
+    .pipe(pixrem({ rootValue: '10px', html: false }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./'))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.stream());
 });
 
 gulp.task('scripts', function(){
@@ -61,7 +64,7 @@ gulp.task('scripts', function(){
       }
     }))
     .pipe(gulp.dest('./'))
-    .pipe(browserSync.reload({stream:true}))
+    .pipe(browserSync.stream())
 }); 
 
 gulp.task('default', ['browser-sync'], function(){
