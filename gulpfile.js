@@ -1,8 +1,11 @@
 var gulp = require('gulp');
+
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 
 var browserSync = require('browser-sync');
+
+var wait = require('gulp-wait');
 
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -15,7 +18,11 @@ var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 
-var dirName = require('path').basename(__dirname);
+var path = require('path');
+//wordpress
+// var dirName = path.dirname(__dirname).split(path.sep)[3];
+//static
+var dirName = path.basename(__dirname);
 
 gulp.task('browser-sync', function() {
   browserSync.init({
@@ -36,6 +43,7 @@ var errorHandler = {
 
 gulp.task('styles', function(){
   gulp.src('./src/sass/**/*.scss')
+    .pipe(wait(500)) //to fix Error: File to import not found or unreadable consider reducing delay
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: ['./src/sass']
@@ -44,7 +52,7 @@ gulp.task('styles', function(){
     .pipe(gulp.dest('./'))
     .pipe(rename({suffix: '.min'}))
     .pipe(postcss([ cssnano() ]))
-    .pipe(pixrem({ rootValue: '10px', html: false }))
+    .pipe(pixrem({ rootValue: '16px', html: false }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./'))
     .pipe(browserSync.stream());
@@ -70,5 +78,5 @@ gulp.task('scripts', function(){
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("src/sass/**/*.scss", ['styles']);
   gulp.watch("src/js/**/*.js", ['scripts']);
-  gulp.watch("**/*.html", ['bs-reload']);  
+  gulp.watch(["*.html"],  ['bs-reload']);  
 });
