@@ -23,6 +23,7 @@
     "gulp-uglify": "latest",
     "gulp-wait": "0.0.2",
     "cssnano": "latest",
+    "jshint": "latest",
     "autoprefixer": "latest"
   }
 }
