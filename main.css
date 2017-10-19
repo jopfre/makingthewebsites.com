@@ -484,7 +484,7 @@ body {
 h1 {
   text-transform: uppercase;
   font-family: 'Rubik', sans-serif;
-  font-size: 2rem;
+  font-size: 0.5rem;
   color: #FF520B;
   background: -webkit-linear-gradient(135deg, #FF520B 0, #FF520B 40%, #FF0DFD 100%);
   -webkit-background-clip: text;

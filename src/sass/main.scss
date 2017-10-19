@@ -36,7 +36,7 @@ h1 {
   @extend .container;
   text-transform: uppercase;
   font-family: 'Rubik', sans-serif;
-  font-size: 2rem;
+  font-size: 0.5rem;
   @media(min-width: $bps) {
     font-size: 4rem;
   }
