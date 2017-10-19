@@ -1,3 +1,90 @@
 @import 'normalize';
 @import 'vars';
 @import 'base';
+@import 'gears';
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: $white;
+}
+
+.container {
+  max-width: $bps;
+  margin: 0 auto;
+}
+
+#hero {
+  position: relative;
+  // background-color: $red;
+  // background-image: linear-gradient(135deg, $orange 0, $lilac 100%);
+  overflow: hidden;
+}
+
+#site-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1rem;
+  // background-attachment: fixed;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  @extend .container;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2rem;
+  @media(min-width: $bps) {
+    font-size: 4rem;
+  }
+  @media(min-width: $bpl) {
+    font-size: 6rem;
+  }
+  color: $orange;
+  background: -webkit-linear-gradient(135deg, $orange 0, $orange 40%, $lilac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+}
+
+#pipes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  // width: 100%;
+}
+
+#portfolio {
+  header {
+    @extend .container;
+  }
+  > div {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:stretch;
+  }
+  article {
+    width: 100%;
+    @media(min-width: 320*2px) {
+      width: 50%;
+    }
+    @media(min-width: 320*3px) {
+      width: 33.33%;
+    }
+    @media(min-width: 320*4px) {
+      width: 25%;
+    }
+    h3 {
+      text-align: center;
+    }
+  }
+}

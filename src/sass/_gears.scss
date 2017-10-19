@@ -1,0 +1,44 @@
+#gears {
+  height: 100vh;
+  overflow: hidden;
+  // min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(-1, -1);
+}
+.svg {
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+}
+
+/*.svg.selected .gear, */
+ /*.gear:hover {*/
+  /*fill: rgba( 51,141,198, 0.8 );*/
+/*}*/
+ .gear {
+  fill: darken(#e6e7e8, 33%);
+}
+ .gear,
+ g.text polyline,
+ g.guides circle,
+ g.guides polyline {
+  stroke: #fefefe;
+}
+ g.guides {
+  opacity: 0.8;
+}
+ g.guides circle.pitch {
+  opacity: 0.5;
+}
+ g.guides circle.base {
+  opacity: 0.3;
+}
+ g.guides circle.root,
+ g.guides circle.outer {
+  opacity: 0.2;
+}

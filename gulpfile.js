@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var nunjucks = require('gulp-nunjucks');
+// var nunjucks = require('gulp-nunjucks-api');
 
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
@@ -41,9 +43,16 @@ var errorHandler = {
   }
 };
 
+gulp.task('html', function() {
+  gulp.src('./src/html/**/*.html')
+    .pipe(plumber(errorHandler))
+    .pipe(nunjucks.compile())
+    .pipe(gulp.dest('./'));
+});
+
 gulp.task('styles', function(){
   gulp.src('./src/sass/**/*.scss')
-    .pipe(wait(500)) //to fix Error: File to import not found or unreadable consider reducing delay
+    .pipe(wait(250)) //to fix Error: File to import not found or unreadable consider reducing delay
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: ['./src/sass']
@@ -78,5 +87,6 @@ gulp.task('scripts', function(){
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("src/sass/**/*.scss", ['styles']);
   gulp.watch("src/js/**/*.js", ['scripts']);
-  gulp.watch(["*.html"],  ['bs-reload']);  
+  gulp.watch("src/html/**/*.html", ['html']);
+  gulp.watch(["*.html"],  ['bs-reload']); 
 });

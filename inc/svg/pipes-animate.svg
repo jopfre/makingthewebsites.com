@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Making the Websites</title>
-  <link rel="stylesheet" href="main.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300|Rubik:900" rel="stylesheet">
-  
-</head>
-<body>
-  <section id="hero">
-    <header id="site-title">
-      <h1>Making the Websites</h1>
-    </header>
-    <!-- <img id="pipes" src="img/pipes.svg" alt=""> -->
-    
-<svg id="pipes" viewBox="0 0 700 563.473"
-    xmlns="http://www.w3.org/2000/svg" version="1.1"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-<!-- <svg version="1.1" id="pipes" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 700 563.473" enable-background="new 0 0 700 563.473" xml:space="preserve"> -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="700px" height="563.473px" viewBox="0 0 700 563.473" enable-background="new 0 0 700 563.473" xml:space="preserve">
 <g>
 	<g>
 		<g>
@@ -1635,21 +1619,5 @@
 		</g>
 	</g>
 </g>
-<path id="animationPath" opacity="0" fill="none" d="M-3.636,174.288H700"/>
-  <circle cx="" cy="" r="5" fill="red">
-
-    <!-- Define the motion path animation -->
-    <animateMotion dur="6s" repeatCount="indefinite">
-      <mpath xlink:href="#animationPath"/>
-    </animateMotion>
-  </circle>
+<path opacity="0" fill="none" d="M-3.636,174.288H700"/>
 </svg>
-
-    <div id="gears"></div>
-  </section>    
-  <main>
-  </main>
-  <script src="main.min.js"></script>
-</body>
-</html>
-
